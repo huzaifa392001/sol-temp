@@ -1,0 +1,93 @@
+@import "../../../styles/breakpoint";
+
+.mobileWrap {
+    padding: 100px 50px;
+    height: auto;
+    display: grid;
+    gap: 50px;
+
+    @include md {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include lg {
+        padding: 200px 110px;
+        gap: 100px;
+        min-height: 100vh;
+        height: 100%;
+    }
+}
+
+.imgWrap {
+    overflow: hidden;
+    height: 447px;
+    width: 206px;
+    margin: 0 auto;
+    transform: translateY(30%) scale(1.1);
+    opacity: 0;
+
+    @include md {
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+        max-height: 600px;
+    }
+
+    @include xl {
+        height: 80vh;
+    }
+
+    @include xxl {
+        height: 90vh;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 21px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+        margin: 0 auto;
+        border: 5px solid #000;
+
+        @include md {
+            border: 10px solid #000;
+            border: radius 48px;
+        }
+    }
+    &:nth-child(n + 3) {
+        display: none;
+    }
+    @include md {
+        &:nth-child(n + 3) {
+            display: block;
+        }
+        &:first-child {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        &:last-child {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        &:nth-child(odd) {
+            margin-top: 80px;
+        }
+    }
+}
+
+.threeImages {
+    @include md {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.twoImages {
+    @include md {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-content: center;
+    }
+}

@@ -1,0 +1,75 @@
+import React, { useEffect, useRef } from "react";
+import s from "./NextPrevSection.module.scss";
+import Image from "next/image";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import gsap from "gsap";
+import Link from "next/link";
+gsap.registerPlugin(ScrollTrigger);
+
+interface NextPrevSectionProps {
+  image?: string;
+  heading?: string;
+  next?: string;
+  nextLink?: string;
+  prev?: string;
+  prevLink?: string;
+}
+
+const NextPrevSection: React.FC<NextPrevSectionProps> = ({
+  image,
+  heading,
+  next,
+  prev,
+  prevLink,
+  nextLink,
+}) => {
+  const refreshTrigger = () => {
+    console.log("refreshing ScrollTrigger");
+    ScrollTrigger.refresh();
+  };
+  return (
+    <>
+      {/* <h2 className={s.fullHeading}>Thyssen Bornemisza</h2> */}
+      <div className={`${s.nextPrevSection}`}>
+        <div className={`${s.projectRow}`}>
+          <Link href={prevLink || ""} className={`${s.projectBox}`}>
+            <div className={`${s.prevHeadingWrapper}`}>
+              <h3 className={`${s.prevHeading}`}>previous Project</h3>
+              <h3 className={`${s.prevHeading} ${s.hiddenHeading}`}>
+                previous Project
+              </h3>
+            </div>
+            <figure className={`${s.imgWrapper}`}>
+              {/* <Image
+                onLoadingComplete={() => refreshTrigger()}
+                src={image || ""}
+                fill
+                alt=""
+              /> */}
+            </figure>
+            <h2 className={`${s.projectHeading}`}>{prev}</h2>
+          </Link>
+          <Link href={nextLink || ""} className={`${s.projectBox}`}>
+            <div className={`${s.prevHeadingWrapper}`}>
+              <h3 className={`${s.prevHeading}`}>next Project</h3>
+              <h3 className={`${s.prevHeading} ${s.hiddenHeading}`}>
+                next Project
+              </h3>
+            </div>
+            <figure className={`${s.imgWrapper}`}>
+              {/* <Image
+                onLoadingComplete={() => refreshTrigger()}
+                src={image || ""}
+                fill
+                alt=""
+              /> */}
+            </figure>
+            <h2 className={`${s.projectHeading}`}>{next}</h2>
+          </Link>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default NextPrevSection;

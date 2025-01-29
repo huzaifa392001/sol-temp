@@ -1,0 +1,39 @@
+@import "../../../styles/breakpoint";
+
+.hero {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    // gap: 4rem;
+    padding: 150px 0 50px;
+
+    @include md {
+        height: 100vh;
+    }
+}
+
+.heading {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 5rem;
+    line-height: calc(5rem * 1.2);
+    font-weight: 400;
+    white-space: nowrap;
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to top, #000, #000);
+    will-change: transform;
+
+    @include md {
+        line-height: 1;
+        font-size: 17vw;
+        font-size: max(9em, 17vw);
+    }
+}

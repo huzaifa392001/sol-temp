@@ -1,0 +1,40 @@
+@import "../../../styles/breakpoint";
+
+.videoSection {
+    padding: 0 20px;
+
+    @include md {
+        padding: 100px 50px;
+    }
+
+    @include lg {
+        padding: 200px 110px;
+        min-height: 80vh;
+        height: 100%;
+    }
+}
+
+.videoWrap {
+    border-radius: 35px;
+    overflow: hidden;
+    width: 100%;
+    border: 3px solid #000;
+    transform: translateY(20%);
+    opacity: 0;
+
+    video {
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 16 / 9;
+    }
+
+    @include md {
+        border: 10px solid #000;
+        height: 100%;
+        border-radius: 70px;
+        video {
+            max-height: 95vh;
+            height: auto;
+        }
+    }
+}

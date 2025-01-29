@@ -1,0 +1,28 @@
+@import "../../../styles/breakpoint";
+
+.tileRows {
+    display: grid;
+    gap: 40rem;
+    margin-left: -10rem;
+    overflow: hidden;
+    max-height: 100vh;
+    background-color: #fff;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    @include xxl {
+        gap: 30rem;
+    }
+}
+.tileRow {
+    background-color: #fff;
+    height: 100vh;
+    transform: rotate(25deg) translateY(-25%) translateX(-10%);
+    width: 550px;
+
+    img {
+        width: 100%;
+    }
+
+    &:nth-child(even) {
+        transform: rotate(25deg) translateY(-100%) translateX(-10%);
+    }
+}
