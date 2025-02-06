@@ -22,19 +22,20 @@
     transform: translateY(20%);
     opacity: 0;
 
-    video {
-        width: 100%;
-        object-fit: cover;
-        aspect-ratio: 16 / 9;
-    }
-
     @include md {
         border: 10px solid #000;
         height: 100%;
         border-radius: 70px;
-        video {
-            max-height: 95vh;
-            height: auto;
-        }
+    }
+}
+
+.video {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+
+    @include md {
+        max-height: 95vh;
+        height: auto;
     }
 }

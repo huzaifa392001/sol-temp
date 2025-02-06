@@ -35,7 +35,11 @@ export default function Index() {
           ]}
           image={"/work/bauhas/img1.webp"}
         />
-        <VideoSection video="" poster="/work/bauhas/poster.webp" />
+        {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/OUjUvP2PUJo?si=N93KUv_LNZd6q0cw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
+        <VideoSection
+          video="https://www.youtube.com/embed/OUjUvP2PUJo?autoplay=1&mute=1&loop=1&playlist=OUjUvP2PUJo&controls=0&modestbranding=1&showinfo=0&rel=0&fs=0&disablekb=1"
+          poster="/work/bauhas/poster.webp"
+        />
         <ImageSection image="/work/bauhas/webpage1.webp" />
         <HeadingSection
           heading="Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet"
@@ -52,7 +56,8 @@ export default function Index() {
           leftImg
         />
         <ImageSection
-          image="/work/bauhas/webpage2.webp"
+          video="/work/bauhas/video1.mp4"
+          poster="/work/bauhas/poster.webp"
           type="withBg"
           backgroundImage={"/work/bauhas/webpageBg.webp"}
         />

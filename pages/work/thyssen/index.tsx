@@ -34,7 +34,10 @@ export default function Index() {
           ]}
           image={"/work/thyssen/img1.webp"}
         />
-        <VideoSection video="" poster="/work/thyssen/poster.webp" />
+        <VideoSection
+          video="/work/thyssen/video1.mp4"
+          poster="/work/thyssen/poster.webp"
+        />
         <ImageSection image="/work/thyssen/webpage1.webp" />
         <ImageSection image="/work/thyssen/webpage1-1.webp" />
         <HeadingSection
@@ -52,7 +55,8 @@ export default function Index() {
           leftImg
         />
         <ImageSection
-          image="/work/thyssen/webpage2.webp"
+          video="/work/thyssen/video1.mp4"
+          poster="/work/thyssen/poster.webp"
           type="withBg"
           backgroundImage={"/work/thyssen/webpageBg.webp"}
         />
@@ -84,7 +88,7 @@ export default function Index() {
           image="/work/thyssen/headingImage2.webp"
         />
         <NextPrevSection
-          prevLink={"/work/myndyoga"}
+          prevLink={"/work/thyssen"}
           prev={"myndYoga"}
           nextLink={"/work/bauhas"}
           next={"bauhas"}

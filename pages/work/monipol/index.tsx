@@ -35,7 +35,10 @@ export default function Index() {
           ]}
           image={"/work/monipol/img1.webp"}
         />
-        <VideoSection video="" poster="/work/monipol/poster.webp" />
+        <VideoSection
+          video="/work/monipol/video1.mp4"
+          poster="/work/monipol/poster.webp"
+        />
         <ImageSection image="/work/monipol/webpage1.webp" />
         <HeadingSection
           heading="Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet"
@@ -52,7 +55,8 @@ export default function Index() {
           leftImg
         />
         <ImageSection
-          image="/work/monipol/webpage2.webp"
+          video="/work/monipol/video1.mp4"
+          poster="/work/monipol/poster.webp"
           type="withBg"
           backgroundImage={"/work/monipol/webpageBg.webp"}
         />

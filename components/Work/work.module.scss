@@ -290,8 +290,11 @@
 }
 
 .image {
-  @include lg {
+  width: 50vw;
+  @include sm {
     width: 30vw;
+  }
+  @include lg {
     height: 90vh;
   }
 }

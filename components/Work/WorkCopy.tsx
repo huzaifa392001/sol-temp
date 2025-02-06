@@ -212,10 +212,29 @@ const Work = () => {
             );
             let path = sec?.querySelector(".svgElementPath");
             console.log(`work-${index} path=> `);
+            let pathTl = gsap.timeline({
+              scrollTrigger: {
+                trigger: sec || "",
+                scrub: 1,
+              },
+            });
+
+            pathTl.to(svgElements, {
+              motionPath: {
+                path: `.element-${index} #workPath-${index}`,
+                align: `.element-${index} #workPath-${index}`,
+                alignOrigin: [0.5, 0.5],
+                autoRotate: true,
+              },
+              transformOrigin: "50% 50%",
+              scale: 1,
+              duration: 10,
+              ease: "none",
+              stagger: 0.5,
+            });
             let tl = gsap.timeline({
               scrollTrigger: {
                 trigger: sec || "",
-                markers: true,
                 scrub: 1,
               },
             });
@@ -225,36 +244,19 @@ const Work = () => {
               y: "40vw",
               ease: "none",
             })
-              // .to(
-              //   svgElements,
-              //   {
-              //     motionPath: {
-              //       path: `.element-${index} #workPath-${index}`,
-              //       align: `.element-${index} #workPath-${index}`,
-              //       alignOrigin: [0.5, 0.5],
-              //       autoRotate: true,
-              //     },
-              //     transformOrigin: "50% 50%",
-              //     scale: 1,
-              //     duration: 10,
-              //     ease: "none",
-              //     stagger: 0.5,
-              //   },
-              //   "<"
-              // )
               .from(
                 image,
                 {
-                  xPercent: 60,
-                  yPercent: 101,
+                  xPercent: isDesktop ? 60 : 101,
+                  yPercent: isDesktop ? 101 : 60,
                   rotate: -40,
                   ease: "none",
                 },
                 "<"
               )
               .to(image, {
-                xPercent: -60,
-                yPercent: -101,
+                xPercent: isDesktop ? -60 : -101,
+                yPercent: isDesktop ? -101 : -60,
                 rotate: 40,
                 ease: "none",
               });

@@ -33,10 +33,17 @@ const VideoSection: React.FC<VideoSectionProps> = ({ video, poster }) => {
   return (
     <div ref={videoSection} className={s.videoSection}>
       <figure ref={videoRef} className={s.videoWrap}>
-        <video width="100%" poster={poster} controls>
+        {/* <video width="100%" poster={poster} autoPlay muted loop>
           <source src={video} type="video/mp4" />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
+        <iframe
+          src={video}
+          className={s.video}
+          frameBorder={0}
+          loading="lazy"
+          allow="autoplay; fullscreen; picture-in-picture"
+        ></iframe>
       </figure>
     </div>
   );

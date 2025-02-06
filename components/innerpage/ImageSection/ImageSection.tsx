@@ -11,6 +11,8 @@ interface ImageSectionProps {
   doubleImg?: string[]; // Array of images for double image type
   type?: string;
   backgroundImage?: string; // Optional background image
+  video?: string;
+  poster?: string;
 }
 
 const ImageSection: React.FC<ImageSectionProps> = ({
@@ -18,6 +20,8 @@ const ImageSection: React.FC<ImageSectionProps> = ({
   type,
   backgroundImage,
   doubleImg,
+  video,
+  poster,
 }) => {
   const imgRef = useRef<HTMLElement>(null);
 
@@ -80,7 +84,7 @@ const ImageSection: React.FC<ImageSectionProps> = ({
           type === "doubleFullImg" ? s.doubleFullImgWrap : ""
         } ${type === "fullImg" ? s.fullImgWrap : ""}`}
       >
-        {type === "withBg" || type === "fullImg" ? (
+        {type === "fullImg" ? (
           <Image
             onLoadingComplete={() => refreshTrigger()}
             quality={100}
@@ -89,6 +93,18 @@ const ImageSection: React.FC<ImageSectionProps> = ({
             width={1920}
             alt={type || "Image"}
           />
+        ) : type === "withBg" ? (
+          // <video width="100%" poster={poster} autoPlay muted loop>
+          //   <source src={video} type="video/mp4" />
+          //   Your browser does not support the video tag.
+          // </video>
+          <iframe
+            src={video}
+            className={s.video}
+            frameBorder={0}
+            loading="lazy"
+            allow="autoplay; fullscreen; picture-in-picture"
+          ></iframe>
         ) : type === "doubleImg" || type === "doubleFullImg" ? (
           <>
             {doubleImg?.map((img, index) => (

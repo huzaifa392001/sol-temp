@@ -35,7 +35,10 @@ export default function Index() {
           ]}
           image={"/work/everphone/img1.webp"}
         />
-        <VideoSection video="" poster="/work/everphone/poster.webp" />
+        <VideoSection
+          video="/work/everphone/video1.mp4"
+          poster="/work/everphone/poster.webp"
+        />
         <ImageSection image="/work/everphone/webpage1.webp" />
         <HeadingSection
           heading="Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet"
@@ -52,7 +55,8 @@ export default function Index() {
           leftImg
         />
         <ImageSection
-          image="/work/everphone/webpage2.webp"
+          video="/work/everphone/video1.mp4"
+          poster="/work/everphone/poster.webp"
           type="withBg"
           backgroundImage={"/work/everphone/webpageBg.webp"}
         />

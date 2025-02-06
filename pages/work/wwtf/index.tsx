@@ -35,7 +35,10 @@ export default function Index() {
           ]}
           image={"/work/wwtf/img1.webp"}
         />
-        <VideoSection video="" poster="/work/wwtf/poster.webp" />
+        <VideoSection
+          video="/work/wwtf/video1.mp4"
+          poster="/work/wwtf/poster.webp"
+        />
         <ImageSection image="/work/wwtf/webpage1.webp" />
         <HeadingSection
           heading="Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet"
@@ -51,8 +54,9 @@ export default function Index() {
           minDescription
           leftImg
         />
-        <ImageSection
-          image="/work/wwtf/webpage2.webp"
+         <ImageSection
+          video="/work/wwtf/video1.mp4"
+          poster="/work/wwtf/poster.webp"
           type="withBg"
           backgroundImage={"/work/wwtf/webpageBg.webp"}
         />

@@ -9,25 +9,25 @@ export const data: Data[] = [
   {
     heading: "Brand Design",
     desc: "Unleash the power of visual storytelling with my Brand Design expertise. I create unique and memorable visual identities that resonate with your audience, making your brand stand out in today’s competitive landscape.",
-    color: "#dbedf2",
+    color: "#ff9293",
     deg: 62,
   },
   {
     heading: "Brand Strategy",
     desc: "Ignite success with my Brand Strategy service. I navigate the complexities of the market, sculpting a roadmap that defines, differentiates, and propels your brand forward. ",
-    color: "#daf2e0",
+    color: "#ff82ba",
     deg: 25,
   },
   {
     heading: "UX/UI Webdesign",
     desc: "Immerse users in a seamless digital experience with my UX/UI Web Design. I blend functionality with aesthetics, creating interfaces that captivate and navigate effortlessly. ",
-    color: "#fff4ce",
+    color: "#c19280",
     deg: 342,
   },
   {
     heading: "Web & App Development",
     desc: "Elevate your online presence with my expert Web Development services, offered in collaboration with professionals from my extensive network. We specialize in crafting responsive, robust, and dynamic websites that effectively engage users by utilizing cutting-edge development solutions such as Wordpress, Typo3, Squarespace, Webflow, or custom code integrating libraries like Gsap, Next.js, or Locomotive Scroll. ",
-    color: "#fcebe4",
+    color: "#d6c2e4",
     deg: 292,
   },
   // {
@@ -45,13 +45,13 @@ export const data: Data[] = [
   {
     heading: "Conversion Rate Optimization",
     desc: "Boost your online success with Conversion Rate Optimization (CRO). I analyze, refine, and enhance user experiences, turning clicks into conversions. Elevate your website’s performance and maximize your digital impact with my CRO expertise.",
-    color: "#EBEBEB",
+    color: "#83d398",
     deg: 192,
   },
   {
     heading: "SEO & Lead generation",
     desc: "",
-    color: "#fff4ce",
+    color: "#EBEBEB",
     deg: 100,
   },
 ];
