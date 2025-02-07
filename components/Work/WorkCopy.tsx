@@ -205,17 +205,19 @@ const Work = () => {
             });
           let sections = document?.querySelectorAll("#work .slides");
           sections?.forEach((sec, index) => {
-            let image = sec?.querySelector(".slideImg");
-            let headings = sec?.querySelectorAll(".slideHeading");
+            let imageWrapper = sec?.querySelector(`.${s.imageHolderFixed}`);
+            let image = sec?.querySelector(`.${s.workImageHolder}`);
+            let headings = sec?.querySelectorAll(`.${s.gridTextHholder} h2`);
             let svgElements = sec?.querySelectorAll(
               ".svgElement .svgImageElement"
             );
+            console.log(svgElements);
             let path = sec?.querySelector(".svgElementPath");
-            console.log(`work-${index} path=> `);
+
             let pathTl = gsap.timeline({
               scrollTrigger: {
                 trigger: sec || "",
-                scrub: 1,
+                scrub: true,
               },
             });
 
@@ -232,34 +234,51 @@ const Work = () => {
               ease: "none",
               stagger: 0.5,
             });
-            let tl = gsap.timeline({
+            let headingTl = gsap.timeline({
               scrollTrigger: {
-                trigger: sec || "",
-                scrub: 1,
+                trigger: headings || "",
+                end: "bottom bottom",
+                // markers: true,
+                scrub: true,
               },
             });
 
-            tl.from(headings, {
-              scale: 2.2,
-              y: "40vw",
-              ease: "none",
-            })
-              .from(
-                image,
+            headingTl.from(headings, { scale: 1.5, y: "4vw", ease: "none" });
+
+            let imageTl = gsap.timeline({
+              scrollTrigger: {
+                trigger: sec || "",
+                end: "bottom center",
+                // markers: true,
+                scrub: true,
+              },
+            });
+            imageTl
+              .fromTo(
+                imageWrapper,
                 {
-                  xPercent: isDesktop ? 60 : 101,
-                  yPercent: isDesktop ? 101 : 60,
-                  rotate: -40,
+                  x: isDesktop ? "60%" : "101%",
+                  y: isDesktop ? "101%" : "60%",
+                },
+                {
+                  x: isDesktop ? "-60%" : "-101%",
+                  y: isDesktop ? "-101%" : "-60%",
                   ease: "none",
                 },
                 "<"
               )
-              .to(image, {
-                xPercent: isDesktop ? -60 : -101,
-                yPercent: isDesktop ? -101 : -60,
-                rotate: 40,
-                ease: "none",
-              });
+              .fromTo(
+                image,
+                { rotateZ: -40 },
+                { rotateZ: 40, ease: "none" },
+                "<"
+              );
+            // .fromTo(image, {
+            //   rotateZ: -40,
+            // },{
+            //   rotateZ: 40,
+            //   ease: "none",
+            // });
           });
         }
       );
@@ -285,8 +304,6 @@ const Work = () => {
       <svg
         className={`workSvg ${s.svgElement}`}
         ref={elementAnimation}
-        width="1920"
-        height="1080"
         viewBox="0 0 1920 1080"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -363,20 +380,10 @@ const Work = () => {
       </div>
 
       <div className={`slider ${s.slider}`}>
-        {/* <div className={s.counter}> */}
-        {/* <h2>0{counter}/07</h2> */}
-        {/* </div> */}
         {data.map(({ id, name }, i) => (
-          <Link
-            key={id}
-            href={`${workPaths[id]}`}
-            className={`slide-${i} ${s.slide} slides`}
-            onClick={() => handleCardClick(id)}
-          >
+          <div className={`${s.listItem} slides`}>
             <svg
               className={`${s.cardElements} svgElement element-${i}`}
-              width="1920"
-              height="1080"
               viewBox="0 0 1920 1080"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -438,26 +445,39 @@ const Work = () => {
                 </clipPath>
               </defs>
             </svg>
-            <div className={`${s.imgWrapper} slideImg`}>
-              <Image
-                className={`image-${i} ${s.image}`}
-                src={`/work/${id}.webp`} // Ensure this path is correct
-                alt="image"
-                height={2000}
-                width={2000}
-                loading="lazy"
-              />
+            <div className={`${s.holder}`}>
+              <Link
+                key={id}
+                href={`${workPaths[id]}`}
+                className={`slide-${i} ${s.slide} `}
+                onClick={() => handleCardClick(id)}
+              >
+                <div id="page-wrap" className={`${s.imageHolderFixed}`}>
+                  <div className={`${s.workImageHolder}`}>
+                    <div className={`${s.imgInnerHolder}`}>
+                      <Image
+                        className={`image-${i} ${s.image}`}
+                        src={`/work/${id}.webp`} // Ensure this path is correct
+                        alt="image"
+                        height={2000}
+                        width={2000}
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className={`${s.gridTextHholder}`}>
+                  <h2 className={`${s.portoflioOverviewTitle}`}>{name}</h2>
+                  <h2 className={`${s.portoflioOverviewTitle}`} data-absolute>
+                    {name}
+                  </h2>
+                  <h2 className={`${s.portoflioOverviewTitle}`} data-stroke>
+                    {name}
+                  </h2>
+                </div>
+              </Link>
             </div>
-            <div
-              onPointerEnter={workHeadingPointerEnter}
-              onPointerLeave={workHeadingPointerLeave}
-            >
-              <h2 className={`heading-${i} slideHeading`}>{name}</h2>
-              <h2 className={`heading-${i} slideHeading`} data-stroke>
-                {name}
-              </h2>
-            </div>
-          </Link>
+          </div>
         ))}
       </div>
     </section>
