@@ -86,8 +86,6 @@ const Footer = () => {
   const lenisRef = useRef<any>(null); // Using ref to persist Lenis instance
 
   const lenisSetup = () => {
-    if (window.innerWidth <= 768) return; // Disable Lenis for small screens
-
     const lenis = new Lenis({
       duration: 1.5,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
